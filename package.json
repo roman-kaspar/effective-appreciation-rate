@@ -1,0 +1,20 @@
+{
+  "name": "effective-appreciation-rate",
+  "version": "1.0.0",
+  "description": "Effective appreciation / depreciation rate calculator for investors.",
+  "main": "ear.js",
+  "repository": "git@github.com:roman-kaspar/effective-appreciation-rate.git",
+  "author": "Roman Kaspar <roman.kaspar@seznam.cz>",
+  "license": "MIT",
+  "private": false,
+  "renovate": {
+    "extends": [
+      "config:semverAllMonthly"
+    ],
+    "bumpVersion": "patch",
+    "automerge": true,
+    "major": {
+      "automerge": false
+    }
+  }
+}
