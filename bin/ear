@@ -2,4 +2,4 @@
 
 const Client = require('../dist/ear').Client;
 const client = new Client();
-client.run(process.argv);
+client.run(process.argv.slice(2));

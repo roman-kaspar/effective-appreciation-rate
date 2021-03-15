@@ -1,3 +1,5 @@
+# WORK IN PROGRESS
+
 # effective-appreciation-rate
 
 Effective appreciation / depreciation rate calculator for investors.
@@ -41,7 +43,11 @@ argument) must be provided in `YYYY/MM/DD` format.
 
 The money amounts must be provided in format which is accepted by JavaScript
 `parseFloat()` function, i.e. with no thousands separator and with `.` as the
-decimal separator.
+decimal separator. *The command line arguments are prefixed with (double)
+dashes, therefore the command line parser cannot parse negative value provided
+on command line correctly (as it starts with minus sign, which is a dash as
+well.  To enter negative value on command line, please replace the minus sign
+with "neg" string.  E.g. use "neg100" to input negative 100, i.e. -100.*
 
 The portfolio history file is a CSV file (comma separated values file) with each
 line of `YYYY/MM/DD,amount[,comment]` format. The first part is the date of the
