@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+const Client = require('../dist/ear').Client;
+const client = new Client();
+client.run(process.argv);

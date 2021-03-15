@@ -21,16 +21,18 @@ This tool is calculating the rate given two inputs:
 ## Usage
 
 ```
-$ ./bin/ear.sh --history <FILE> --value <NUMBER> [--date <DATE>]
+$ ./bin/ear --history <FILENAME> --value <NUMBER> [--date <DATE>]
 ```
 
-The tool is written in JavaScript for [node.js](www.nodejs.org), the `node`
-binary must be in system PATH. To install the other dependencies, run
+The tool is written in TypeScript for recent version of
+[node.js](www.nodejs.org), the `node` binary must be in system PATH. To install
+the dependencies and compile it, run
 ```
-$ yarn
+$ yarn && yarn build
 ```
 
-If `date` command line argument is not provided, current date (= today) is used.
+If the `date` command line argument is not provided, current date (= today) is
+used.
 
 ## Data formats
 
