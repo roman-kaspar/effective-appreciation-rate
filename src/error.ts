@@ -10,6 +10,7 @@ export enum Err {
   CANNOT_PARSE_FILE_NUM = 'cannot parse value "%s" as a number in file "%s" on line %d',
   CANNOT_PARSE_FILE_DATE = 'cannot parse value "%s" as a "YYYY/MM/DD" date in file "%s" on line %d',
   EMPTY_HISTORY = 'history file "%s" does not contain valid history lines (i.e. is empty)',
+  NO_RELEVANT_HISTORY = 'history file does not contain relevant history lines',
 }
 
 export function fatal(err: Err, ...rest): void {
