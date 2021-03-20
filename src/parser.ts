@@ -11,10 +11,14 @@ type ParsedArgs = {
   value: number;
 }
 
+export type ParsedPair = {
+  date: Date;
+  value: number;
+}
+
 export class Parser {
   public parseCmd(cmdLineArgs: string[]): ParsedArgs {
     const parsed = minimist(cmdLineArgs, {string: ['history', 'value', 'date']});
-    console.log(parsed);
     if (!parsed.history) {
       fatal(Err.CMD_ARG_MISSING, 'history');
     }
@@ -34,8 +38,38 @@ export class Parser {
     return {date, filename: parsed.history, value};
   }
 
-  public parseHistoryFile(filename: string): void {
-    // TODO
+  public parseHistoryFile(filename: string): ParsedPair[] {
+    let lines;
+    try {
+      lines = readFileSync(filename).toString().split('\n');
+    } catch(e) {
+      fatal(Err.CANNOT_READ_FILE, filename);
+    }
+
+    const result: ParsedPair[] = [];
+    lines.forEach((lineRaw, index) => {
+      const line = lineRaw.trim();
+      if (!line.length || line.startsWith('#')) { // empty lines and comments are ignored
+        return;
+      }
+      const [dateStr, valueStr] = line.split(',');
+      if (!valueStr) {
+        fatal(Err.MALFORMED_LINE, index + 1, filename);
+      }
+      const date = this.parseDate(dateStr);
+      if (date === null) {
+        fatal(Err.CANNOT_PARSE_FILE_DATE, dateStr, filename, index + 1);
+      }
+      const value = this.parseFloat(valueStr);
+      if (value === null) {
+        fatal(Err.CANNOT_PARSE_FILE_NUM, valueStr, filename, index + 1);
+      }
+      result.push({date, value});
+    });
+    if (!result.length) {
+      fatal(Err.EMPTY_HISTORY, filename);
+    }
+    return result;
   }
 
   private parseFloat(str: string): number | null {

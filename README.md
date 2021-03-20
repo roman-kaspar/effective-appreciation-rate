@@ -60,6 +60,8 @@ All portfolio history file lines with dates that are in the future (compared to
 the `date` command line argument, or today if `date` is not provided) are
 ignored.
 
+Empty lines and lines starting with a hash sign (#) are ignored.
+
 ## Licence
 
 MIT License
