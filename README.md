@@ -1,5 +1,3 @@
-# WORK IN PROGRESS
-
 # effective-appreciation-rate
 
 Effective appreciation / depreciation rate calculator for investors.
