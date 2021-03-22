@@ -60,6 +60,32 @@ ignored.
 
 Empty lines and lines starting with a hash sign (#) are ignored.
 
+## Examples
+
+Content of `history.csv` file:
+```
+2020/01/15,1000
+2020/05/15,10000
+2020/09/15,100000
+```
+
+Calculations:
+```
+$ ear --history history.csv --date 2021/01/15 --value 111000
+
+appreciation rate: 0.00% p.a.
+
+
+$ ear --history history.csv --date 2021/01/15 --value 114999
+
+appreciation rate: 10.00% p.a.
+
+
+$ ear --history history.csv --date 2021/01/15 --value 106758
+
+depreciation rate: -10.00% p.a.
+```
+
 ## Licence
 
 MIT License
