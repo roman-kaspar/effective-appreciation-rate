@@ -1,6 +1,6 @@
 {
   "name": "effective-appreciation-rate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Effective appreciation / depreciation rate calculator for investors.",
   "repository": "git@github.com:roman-kaspar/effective-appreciation-rate.git",
   "author": "Roman Kaspar <roman.kaspar@seznam.cz>",
@@ -21,8 +21,8 @@
     }
   },
   "devDependencies": {
-    "@types/node": "^14.14.35",
-    "typescript": "^4.2.3"
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
   },
   "dependencies": {
     "minimist": "^1.2.5",
